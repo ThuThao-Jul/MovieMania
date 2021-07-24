@@ -13,6 +13,7 @@ const DetailPage = () => {
       let url = `https://api.themoviedb.org/3/movie/${movie_ID}?api_key=${myKey}`;
       const data = await fetch(url);
       const res = await data.json();
+      console.log("this is", res);
       setMovieDetail(res);
     };
     getMovieDetail();

@@ -1,8 +1,8 @@
 import React from "react";
-
 import MainPage from "./pages/MainPage";
 import DetailPage from "./pages/DetailPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
 
 //Khúc này mọi người install router vô rồi xem lại video của Tuấn nhé. Dưới đây đại khái vậy thôi.
 const App = () => {

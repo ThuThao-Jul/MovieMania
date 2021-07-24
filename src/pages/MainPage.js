@@ -12,6 +12,7 @@ const MainPage = () => {
       let url = `https://api.themoviedb.org/3/trending/all/day?api_key=${myKey}`;
       const data = await fetch(url);
       const result = await data.json();
+      console.log(result);
       setMovies(result.results);
     };
     getData();
