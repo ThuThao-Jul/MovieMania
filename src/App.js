@@ -1,7 +1,7 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import MainPage from "./Components/MainPage";
-import DetailPage from "./Components/DetailPage";
+
+import MainPage from "./pages/MainPage";
+import DetailPage from "./pages/DetailPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Khúc này mọi người install router vô rồi xem lại video của Tuấn nhé. Dưới đây đại khái vậy thôi.

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import DetailPage from "./DetailPage";
-import MovieList from "./MovieList";
+import MovieList from "../Components/MovieList";
 
 let myKey = process.env.REACT_APP_API_KEY;
 
@@ -13,7 +12,6 @@ const MainPage = () => {
       let url = `https://api.themoviedb.org/3/trending/all/day?api_key=${myKey}`;
       const data = await fetch(url);
       const result = await data.json();
-      console.log(result);
       setMovies(result.results);
     };
     getData();
