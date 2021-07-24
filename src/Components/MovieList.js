@@ -1,8 +1,8 @@
 import React from "react"
 
-const MovieList = () => {
+const MovieList = ({category}) => {
     return (
-     <div>This is MovieList</div>
+     <div>This is MovieList of {category}</div>
     )
 }
 export default MovieList

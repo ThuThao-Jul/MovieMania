@@ -7,7 +7,7 @@ import MovieList from "./MovieList";
 
 // let myKey = process.env.REACT_APP_API_KEY;
 // console.log(myKey)
-const MainPage = ({data}) => {
+const MainPage = ({data, category}) => {
   console.log("Im MainPage I receive data from App", data);
     
   // useEffect(() => {
@@ -24,7 +24,7 @@ const MainPage = ({data}) => {
   
     return (
       <>
-      <MovieList />
+      <MovieList category = {category}/>
       <DetailPage />
       </>
        

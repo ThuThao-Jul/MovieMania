@@ -4,6 +4,7 @@ import MainPage from "./Components/MainPage"
 import DetailPage from "./Components/DetailPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SearchBox from "./Components/SearchBox/index.js";
+import Footer from "./Components/Footer";
 
 
 
@@ -12,7 +13,8 @@ import SearchBox from "./Components/SearchBox/index.js";
 //Khúc này mọi người install router vô rồi xem lại video của Tuấn nhé. Dưới đây đại khái vậy thôi.
 const App = () => {
 
-  //lifting state from SearchBox
+    //lifting state from SearchBox
+  const [category, setCategory] = useState('');
   const [query, setQuery] = useState('');
   const [data, setData] = useState('');
 
@@ -20,40 +22,52 @@ const App = () => {
   useEffect(() => {
      
     const getData = async () => {
-        let url 
+      
+      let myKey = process.env.REACT_APP_API_KEY;
+      let url
+      let defaultUrl = `https://api.themoviedb.org/3/search/movie?api_key=${myKey}&language=en-US&query=action&include_adult=false`;
+      
         if(query) {
             //movie fillter from 'query' 
-            url = `https://newsapi.org/v2/everything?q=${query}&apiKey=698e41aa0a824f15b275f3a51812306c`
-        }else {
-            // the movie when have no seach action
-            url = `https://api.themoviedb.org/3/trending/all/day?api_key=362678850053d11fdeca26d50399edd6`
+            url = `https://api.themoviedb.org/3/search/movie?api_key=${myKey}&language=en-US&query=${query}&include_adult=false`
+        } else if (category) {
+            url = `https://api.themoviedb.org/3/search/movie?api_key=${myKey}&language=en-US&query=${category}&include_adult=false`
         }
+        else {
+            // the movie when have no seach action
+            url = defaultUrl;
+        }
+
 
         const data = await fetch(url);
         const result = await data.json();
-        console.log('Im App I received data when user seached',result);
+        // console.log('Im App I received data when user seached',result);
         setData(result);
 
     }
     getData()
 
-}, [query]);
-  
+}, [query, category]);
+
+  const handleCategory = (eventKey, event) => {
+    setCategory(eventKey);
+  }
+
   
   return (
     <>
-     <SearchBox setQuery={setQuery}/>
 
-     <MainPage data={data}/>
      <Router>
+     <SearchBox setQuery={setQuery} handleCategory={handleCategory}/>
        <Switch>
-         <Route path="/" exact component={MainPage} />
+         <Route path="/" exact component= {()=> <MainPage data={data} category={category} /> } />
          <Route path="/:id" component={DetailPage} />
         </Switch>
+      <Footer/>  
      </Router>
+
     
     </>
   )
 }
-
 export default App;
