@@ -21,10 +21,9 @@ const ResultPage = () => {
           const data = await fetch(url);
           const res= await data.json();
           console.log(res);
-          console.log("The query has changed", queryInput)
+          console.log("The query has changed", queryInput);
           setDataResult(res.results);
-          setDataSearch(res)
-        
+          setDataSearch(res);
           }
       }
       getResult();

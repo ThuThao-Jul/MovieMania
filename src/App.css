@@ -1,4 +1,40 @@
-/* * {
-  max-width: 100vw;
-  max-height: 100vh;
-} */
+.container-fluid {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+.movieDetail {
+  display: flex;
+  padding-top: 3vh;
+}
+.movieDetailIMG {
+  width: 50vw;
+  height: 80vh;
+  padding-left: 3vw;
+}
+
+.movieDetailTitle {
+  padding-left: 1rem;
+  padding-left: 3vw;
+  color: white;
+}
+
+.movieDetailGradient {
+  background: #a8ff78;
+  background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);
+  background: linear-gradient(to right, #78ffd6, #a8ff78);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.trailerFlex {
+  display: flex;
+  justify-content: center;
+}
+
+.trailerRES {
+  height: 90vh;
+  width: 80vw;
+  padding-top: 10vh;
+}

@@ -5,23 +5,20 @@ import MovieList from "./MovieList";
 import Banner from "./banner"
 import CarouselPart from "./CarouselPart"
 import SearchBox from "./SearchBox";
-
+import Footer from "./Footer";
 
 
 const myKey = process.env.REACT_APP_API_KEY;
-console.log(myKey)
+console.log(myKey);
 const MainPage = () => {
-  const [dataBanner, setDataBanner] = useState([])
-  
-  
-    
-  useEffect(() => {
+  const [dataBanner, setDataBanner] = useState([]);
 
-   const getData = async () => {
-      let url = `https://api.themoviedb.org/3/trending/all/day?api_key=${myKey}`
+  useEffect(() => {
+    const getData = async () => {
+      let url = `https://api.themoviedb.org/3/trending/all/day?api_key=${myKey}`;
       const data = await fetch(url);
       const result = await data.json();
-      setDataBanner(result.results.slice(0,11))
+      setDataBanner(result.results.slice(0, 11));
       // console.log(result)
       
    }
@@ -67,8 +64,9 @@ const MainPage = () => {
     
     <h2 style={{color:"white"}}>Category</h2>
     <MovieList /> 
-    
-    
+    <div style={{border:"1px solid #2B2B2B", marginTop:"2rem", backgroundColor:"#2B2B2B"}}>
+    <Footer />
+    </div>
   </div>
 
   
@@ -77,4 +75,4 @@ const MainPage = () => {
         )
 }
 
-export default MainPage
+export default MainPage;

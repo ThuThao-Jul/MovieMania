@@ -1,52 +1,57 @@
-import React, { useEffect, useState } from "react"
-import { Tab, Col, Nav, Row, Image, DropdownButton, ButtonGroup, Dropdown} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import {
+  Tab,
+  Col,
+  Nav,
+  Row,
+  Image,
+  DropdownButton,
+  ButtonGroup,
+  Dropdown,
+} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import PaginationBar from "./Pagination";
 import "./MovieListStyle.css";
 
-
-
 const myKey = process.env.REACT_APP_API_KEY;
 const MovieList = () => {
-    const [data, setData] = useState({})
-    const [genres, setGenres] = useState([])
-    const [movies, setMovies] = useState([])
-    const [activeItem, setActiveItem] = useState('Action')
-    const [page, setPage] = useState(1)
-    const history = useHistory()
+  const [data, setData] = useState({});
+  const [genres, setGenres] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [activeItem, setActiveItem] = useState("Action");
+  const [page, setPage] = useState(1);
+  const history = useHistory();
 
-    const handleClickMovie = (movie_ID) => {
-      history.push(`/movie/${movie_ID}`);
+  const handleClickMovie = (movie_ID) => {
+    history.push(`/movie/${movie_ID}`);
+  };
+
+  useEffect(() => {
+    const getGenres = async () => {
+      let urlGenres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${myKey}&language=en-US`;
+      const data = await fetch(urlGenres);
+      const resultGenres = await data.json();
+      setGenres(resultGenres.genres);
+      // console.log(resultGenres.genres)
     };
-    
-    
+    getGenres();
+  }, []);
 
-    useEffect(() => {
-      const getGenres = async () => {
-        let urlGenres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${myKey}&language=en-US`
-        const data = await fetch(urlGenres);
-        const resultGenres = await data.json();
-        setGenres(resultGenres.genres)
-        // console.log(resultGenres.genres)
-    }
-    getGenres() 
-    }, [])
+  useEffect(() => {
+    const getMovies = async () => {
+      let urlMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${myKey}&language=en-US`;
+      if (page) {
+        urlMovies += `&page=${page}`;
+      }
 
-    useEffect(() => {
-      const getMovies = async () => {
-        let urlMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${myKey}&language=en-US`
-        if (page) {urlMovies+= `&page=${page}`}
-
-        const data = await fetch(urlMovies);
-        const resultMovies = await data.json();
-        setMovies(resultMovies.results)
-        setData(resultMovies)
-        console.log('data movies', resultMovies)
-    }
-    getMovies()
-    },[page])
-    
-    
+      const data = await fetch(urlMovies);
+      const resultMovies = await data.json();
+      setMovies(resultMovies.results);
+      setData(resultMovies);
+      console.log("data movies", resultMovies);
+    };
+    getMovies();
+  }, [page]);
 
     const handleClick = (eventKey) => {
       console.log('handleClick', eventKey)
@@ -119,7 +124,6 @@ const MovieList = () => {
         </Col>
        
         </Row>
-        
       </Tab.Container>
 
       
