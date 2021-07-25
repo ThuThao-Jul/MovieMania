@@ -37,6 +37,7 @@ const CarouselPart =() => {
 
     return(
       <div style={{paddingTop:"3rem", paddingBottom:"2rem", backgroundColor:"black", color:"red"}}> <h2>UPCOMING</h2>
+     
     <Carousel
   focusOnSelect={true}
   centerMode={true}
@@ -56,6 +57,7 @@ const CarouselPart =() => {
 //   deviceType={this.props.deviceType}
   dotListClass="custom-dot-list-style"
   itemClass="carousel-item-padding-40-px"
+ 
   
 > 
 
@@ -70,6 +72,7 @@ const CarouselPart =() => {
   <img src="https://cdn.seat42f.com/wp-content/uploads/2020/07/15192015/Project-Power-Movie-Poster-Jamie-Foxx.jpg" style={{width:"220px", height:"330px"}} alt="poster"/> */}
 </Carousel>
 </div>
+
 )
 }
 
