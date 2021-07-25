@@ -1,6 +1,7 @@
 import React from "react";
 import MainPage from "./Components/MainPage";
 import DetailPage from "./pages/DetailPage";
+import ResultPage from "./pages/ResultPage"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
@@ -12,6 +13,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={MainPage} />
           <Route path="/movie/:id" component={DetailPage} />
+          <Route path="/search/:query" component={ResultPage} />
         </Switch>
       </Router>
     </>

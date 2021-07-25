@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import reactDom from "react-dom";
 import Coverflow from "react-coverflow"
-// import DetailPage from "./DetailPage"
 import MovieList from "./MovieList";
 import Banner from "./banner"
 import CarouselPart from "./CarouselPart"
+import SearchBox from "./SearchBox";
 
 
 
@@ -12,6 +12,7 @@ const myKey = process.env.REACT_APP_API_KEY;
 console.log(myKey)
 const MainPage = () => {
   const [dataBanner, setDataBanner] = useState([])
+  
   
     
   useEffect(() => {
@@ -28,7 +29,9 @@ const MainPage = () => {
   }, [])
   
     return (
-      <>
+  <>
+  <SearchBox />
+  
       <div style={{backgroundColor:"black"}}>
       <h2 style={{color:"red"}}>TOP TRENDING</h2>
        <Coverflow style={{position:"relative"}}
@@ -50,34 +53,25 @@ const MainPage = () => {
     navigation={false}
     enableHeading={false}
   >
-    <div
-      // {onClick={() => fn()}
-      // onKeyDown={() => fn()}
-      role="menuitem"
-      tabIndex="0"
-   >
-      {/* <img
-        src='https://www.themoviedb.org/t/p/w1920_and_h1080_face/a3tL7vRFN63zE8IrpjLHtheAcBM.jpg'
-        alt='title or description'
-        style={{ display: 'block', width: '100%' }}
-   /> 
-    {<h5 style={{textAlign:"center", color:"#FF0000"}}>Ted Lasso</h5>}
-        {<p style={{textAlign:"center", color:"white"}}>Popularity 80.417</p>} */}
-
+    <div role="menuitem" tabIndex="0">
     </div>
    
     {dataBanner.map((e) => <Banner data={(e)} />)}
-  </Coverflow>
 
+  </Coverflow>
   </div>
 
   <CarouselPart />
 
-  <div style={{backgroundColor:"black", padding:"6rem 3rem 3rem 3rem"}}>
+  <div style={{backgroundColor:"black", padding:"4rem 3rem 3rem 3rem"}}>
+    
     <h2 style={{color:"white"}}>Category</h2>
-    <MovieList />
+    <MovieList /> 
+    
+    
   </div>
 
+  
       </>
        
         )

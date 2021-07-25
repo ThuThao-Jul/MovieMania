@@ -10,6 +10,7 @@ const DetailPage = () => {
   const movie_ID = params.id;
   console.log(params)
   const [movieDetail, setMovieDetail] = useState();
+  
   useEffect(() => {
     const getMovieDetail = async () => {
       let url = `https://api.themoviedb.org/3/movie/${movie_ID}?api_key=${myKey}`;

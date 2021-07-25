@@ -12,7 +12,7 @@ const Banner =({data}) => {
               {<p style={{textAlign:"center", color:"white", fontSize:"small"}}><FaStar color="yellow"/> {data.vote_average}/10</p>}
               {/* {<p style={{textAlign:"center", color:"white", fontSize:"small"}}>{data.popularity}</p>} */}
             </div>
-        <img src= {source} alt='title or description' style={{width:"100%"}} data-action="http://andyyou.github.io/react-coverflow/"/>
+          <img src= {source} alt='title or description' style={{width:"100%"}} data-action="http://andyyou.github.io/react-coverflow/"/>
        
         </div>
         

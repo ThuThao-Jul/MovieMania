@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Tab, Col, Nav, Row, Image, DropdownButton, ButtonGroup, Dropdown} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import PaginationBar from "./Pagination";
+import "./MovieListStyle.css";
 
 
 
@@ -54,13 +55,12 @@ const MovieList = () => {
     
   
     return (
- <>
+ 
 
-        <Tab.Container id="left-tabs-example" defaultActiveKey="Action">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="Action">
         <Row>
           <Col sm={3}>
           <Nav variant="pills" className="flex-column">
-        
             {['Danger'].map(
   (variant) => (
     <DropdownButton
@@ -78,8 +78,9 @@ const MovieList = () => {
 )}
           </Nav>
         </Col>
-        <Col sm={9}>
-          {/* <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem"}}> */}
+
+          <Col sm={9}>
+          <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem"}}>
           <Tab.Content>
               
                  {genres.map((g) => {
@@ -93,22 +94,35 @@ const MovieList = () => {
                 <Col >
                 <Row xs={1} md={2} lg={3} className="g-4">
                 {findGenresId.map((movie) =>
-                      <Image type="button" src = {`https://www.themoviedb.org/t/p/w1920_and_h1080_face/${movie.backdrop_path}`} fluid onClick={() => handleClickMovie(movie.id)} /> )}
+                   <div className="containerImage"  onClick={() => handleClickMovie(movie.id)}>
+                      <Image className="image" src = {`https://www.themoviedb.org/t/p/w1920_and_h1080_face/${movie.backdrop_path}`} fluid /> 
+                        <div className="middle">
+                    <div className="content">
+                      <h4 style={{color:"red"}}>{movie.title}</h4>
+                      <p>Rating {movie.vote_average}</p>
+                      <p>Released date {movie.release_date}</p>
+                      </div>
+                        </div>
+                    </div>  
+                   )}
+
                 </Row>
                 </Col>)
                 )}
                     </Tab.Pane>)
                  })}
           </Tab.Content>
+        
           <PaginationBar data={data} page={page} setPage={setPage} />
           
+        </div>
         </Col>
        
         </Row>
         
       </Tab.Container>
 
-      </>
+      
     )
 }
 export default MovieList

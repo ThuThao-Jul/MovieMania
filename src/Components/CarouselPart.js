@@ -2,6 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./MovieListStyle.css"
 
 
 const myKey = process.env.REACT_APP_API_KEY;
@@ -72,9 +73,16 @@ const CarouselPart =() => {
 > 
 
   {dataUpcoming.map((m) => 
-  (<div onClick={() => handleClickMovie(m.id)}>
-  <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${m.poster_path}`}  alt="poster"  />
-  </div>)
+<div className="containerCarousel" onClick={() => handleClickMovie(m.id)}>
+  <img className="image" src={`https://www.themoviedb.org/t/p/w220_and_h330_face${m.poster_path}`}  alt="poster"  />
+  <div className="middle">
+    <div className="content">
+        <h4 style={{color:"red"}}>{m.title}</h4>
+        <p>Rating {m.vote_average}</p>
+        <p>Released date {m.release_date}</p>
+    </div>
+  </div>
+</div>  
   )}
 
   {/* <img src="https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/608x608/products/88997/93196/Avengers-Endgame-Final-Style-Poster-buy-original-movie-posters-at-starstills__42370.1563973516.jpg" style={{width:"220px", height:"330px"}} alt="poster"/>
