@@ -1,14 +1,14 @@
 // import React, { useEffect } from "react";
 import DetailPage from "./DetailPage"
 import MovieList from "./MovieList";
-
+import SearchBox from "./SearchBox/index.js";
 
 
 
 // let myKey = process.env.REACT_APP_API_KEY;
 // console.log(myKey)
-const MainPage = ({data, category}) => {
-  console.log("Im MainPage I receive data from App", data);
+const MainPage = () => {
+  
     
   // useEffect(() => {
 
@@ -24,7 +24,8 @@ const MainPage = ({data, category}) => {
   
     return (
       <>
-      <MovieList category = {category}/>
+      <SearchBox/>
+      <MovieList />
       <DetailPage />
       </>
        
