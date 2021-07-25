@@ -8,19 +8,28 @@ const DetailPage = () => {
   const params = useParams();
   const movie_ID = params.id;
   const [movieDetail, setMovieDetail] = useState();
+  const [trailer, setTrailer] = useState();
   useEffect(() => {
     const getMovieDetail = async () => {
       let url = `https://api.themoviedb.org/3/movie/${movie_ID}?api_key=${myKey}`;
       const data = await fetch(url);
       const res = await data.json();
-      console.log("this is", res);
+      console.log("Detail", res);
       setMovieDetail(res);
     };
+    const getTrailer = async () => {
+      let url = `https://api.themoviedb.org/3/movie/${movie_ID}/videos?api_key=${myKey}`;
+      const data = await fetch(url);
+      const res = await data.json();
+      console.log("trailer", res);
+      setTrailer(res.results);
+    };
     getMovieDetail();
+    getTrailer();
   }, [movie_ID]);
   return (
     <div>
-      <MovieDetail movieDetail={movieDetail} />
+      <MovieDetail movieDetail={movieDetail} trailer={trailer} />
     </div>
   );
 };

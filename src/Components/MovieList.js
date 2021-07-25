@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-let IMG = process.env.REACT_APP_IMAGE;
+let IMG = "https://www.themoviedb.org/t/p/w220_and_h330_face";
 
 const MovieList = ({ movies }) => {
   const history = useHistory();
@@ -9,7 +9,7 @@ const MovieList = ({ movies }) => {
     history.push(`/movie/${movie_ID}`);
   };
   return (
-    <div className="slider">
+    <div>
       {movies &&
         movies.map((movie) => (
           <div onClick={() => handleClickMovie(movie.id)}>
