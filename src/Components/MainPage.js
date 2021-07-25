@@ -12,6 +12,7 @@ const myKey = process.env.REACT_APP_API_KEY;
 console.log(myKey)
 const MainPage = () => {
   const [dataBanner, setDataBanner] = useState([])
+  
     
   useEffect(() => {
 
@@ -69,11 +70,14 @@ const MainPage = () => {
   </Coverflow>
 
   </div>
+
   <CarouselPart />
+
   <div style={{backgroundColor:"black", padding:"6rem 3rem 3rem 3rem"}}>
     <h2 style={{color:"white"}}>Category</h2>
     <MovieList />
   </div>
+
       </>
        
         )

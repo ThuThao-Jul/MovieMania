@@ -1,17 +1,27 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
 
 const myKey = process.env.REACT_APP_API_KEY;
 const CarouselPart =() => {
+  const history = useHistory()
   const [dataUpcoming, setDataUpcoming] = useState([])
   console.log('upcoming',dataUpcoming)
+  
+   
+    const handleClickMovie = (movie_ID) => {
+      history.push(`/movie/${movie_ID}`);
+    };
+    
   useEffect(() => {
     const getUpcoming = async () => {
       let urlUpcoming = `https://api.themoviedb.org/3/movie/upcoming?api_key=${myKey}&language=en-US`
       const data = await fetch(urlUpcoming);
       const resultUpcoming = await data.json();
       console.log(resultUpcoming)
+      resultUpcoming.results.map((r) => console.log(r.id))
       setDataUpcoming(resultUpcoming.results)
   }
   getUpcoming() 
@@ -62,7 +72,9 @@ const CarouselPart =() => {
 > 
 
   {dataUpcoming.map((m) => 
-  <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${m.poster_path}`}  alt="poster" />
+  (<div onClick={() => handleClickMovie(m.id)}>
+  <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${m.poster_path}`}  alt="poster"  />
+  </div>)
   )}
 
   {/* <img src="https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/608x608/products/88997/93196/Avengers-Endgame-Final-Style-Poster-buy-original-movie-posters-at-starstills__42370.1563973516.jpg" style={{width:"220px", height:"330px"}} alt="poster"/>
