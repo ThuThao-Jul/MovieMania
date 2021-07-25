@@ -4,9 +4,11 @@ import { useParams } from "react-router";
 import MovieDetail from "../Components/MovieDetail";
 
 let myKey = process.env.REACT_APP_API_KEY;
+
 const DetailPage = () => {
   const params = useParams();
   const movie_ID = params.id;
+  console.log(params)
   const [movieDetail, setMovieDetail] = useState();
   const [trailer, setTrailer] = useState();
   useEffect(() => {
@@ -27,6 +29,7 @@ const DetailPage = () => {
     getMovieDetail();
     getTrailer();
   }, [movie_ID]);
+  
   return (
     <div>
       <MovieDetail movieDetail={movieDetail} trailer={trailer} />
