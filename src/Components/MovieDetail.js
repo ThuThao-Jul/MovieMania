@@ -2,6 +2,7 @@ import React from "react";
 import { Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Rating from "react-rating";
 
 const MovieDetail = ({ movieDetail, trailer }) => {
   return (
@@ -25,6 +26,16 @@ const MovieDetail = ({ movieDetail, trailer }) => {
               {"  "}
               {movieDetail.vote_average}
             </span>
+            <div style={{ fontSize: "25px", color: "yellow" }}>
+              <Rating
+                emptySymbol="fa fa-star-o fa"
+                fullSymbol="fa fa-star fa"
+                stop="10"
+                step="1"
+                initialRating={movieDetail.vote_average}
+                readonly="true"
+              />
+            </div>
             <div>
               {movieDetail.genres.map((genres) => (
                 <Badge
