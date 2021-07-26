@@ -2,11 +2,17 @@ import SearchBox from "./SearchBox"
 import Image from 'react-bootstrap/Image'
 import { Container, Row, Col } from "react-bootstrap"
 import PaginationBar from "./Pagination"
+import { useHistory } from "react-router-dom"
 
 
 const ResultDetail = ({data, dataSearch, query, page, setPage}) => {
-  
+const history = useHistory()
    console.log(data)
+
+   const handleClickMovie = (movie_ID) => {
+    history.push(`/movie/${movie_ID}`);
+  };
+  
     return (
     <>
         <SearchBox />
@@ -19,7 +25,7 @@ const ResultDetail = ({data, dataSearch, query, page, setPage}) => {
            
      {data.map((r) => 
        <Col xs={6} md={4} lg={3} className="g-4">
-       <Image src={`https://www.themoviedb.org/t/p/w220_and_h330_face${r.poster_path}`} rounded />
+       <Image type="button" src={`https://www.themoviedb.org/t/p/w220_and_h330_face${r.poster_path}`} onClick={() => handleClickMovie(r.id)} rounded />
       </Col>
      )}
      <div style={{marginTop:"2rem"}}>

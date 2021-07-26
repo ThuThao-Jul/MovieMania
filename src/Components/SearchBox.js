@@ -47,7 +47,7 @@ const SearchBox = () => {
                 value={input}
                 onChange={handleInputChange}
             />
-            <Button onClick={confirmSearch} variant="outline-secondary" id="button-addon2" href = {`./search/${input}`}>
+            <Button onClick={confirmSearch} variant="outline-secondary" id="button-addon2" href = {`/search/${input}`}>
                 Search 
             </Button>
         </InputGroup>

@@ -12,7 +12,7 @@ const myKey = process.env.REACT_APP_API_KEY;
 console.log(myKey);
 const MainPage = () => {
   const [dataBanner, setDataBanner] = useState([]);
-
+  console.log(dataBanner)
   useEffect(() => {
     const getData = async () => {
       let url = `https://api.themoviedb.org/3/trending/all/day?api_key=${myKey}`;
@@ -50,7 +50,9 @@ const MainPage = () => {
     navigation={false}
     enableHeading={false}
   >
-    <div role="menuitem" tabIndex="0">
+    <div role="menuitem" 
+    tabIndex="0"
+    >
     </div>
    
     {dataBanner.map((e) => <Banner data={(e)} />)}

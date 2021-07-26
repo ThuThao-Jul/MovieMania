@@ -9,7 +9,7 @@ const ResultPage = () => {
     const queryInput = params.query
     console.log('query', queryInput)
     const [dataResult, setDataResult]=useState([])
-    const [dataSearch, setDataSearch] = useState()
+    const [dataSearch, setDataSearch] = useState("")
     const [page, setPage] = useState(1)
     console.log(dataSearch)
     useEffect(() => {
@@ -19,7 +19,7 @@ const ResultPage = () => {
 
           if (queryInput) {
           const data = await fetch(url);
-          const res= await data.json();
+          const res = await data.json();
           console.log(res);
           console.log("The query has changed", queryInput);
           setDataResult(res.results);
