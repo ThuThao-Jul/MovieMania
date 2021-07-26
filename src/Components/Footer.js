@@ -13,27 +13,27 @@ const Footer = () => {
             </p>
             <ul class="list-inline mt-4">
               <li class="list-inline-item">
-                <a href="#" target="_blank" title="twitter">
+                <a href="_blank" target="_blank" title="twitter">
                   <i class="fa fa-twitter"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#" target="_blank" title="facebook">
+                <a href="_blank" target="_blank" title="facebook">
                   <i class="fa fa-facebook"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#" target="_blank" title="instagram">
+                <a href="_blank" target="_blank" title="instagram">
                   <i class="fa fa-instagram"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#" target="_blank" title="pinterest">
+                <a href="_blank" target="_blank" title="pinterest">
                   <i class="fa fa-pinterest"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#" target="_blank" title="vimeo">
+                <a href="_blank" target="_blank" title="vimeo">
                   <i class="fa fa-vimeo"></i>
                 </a>
               </li>
@@ -48,22 +48,22 @@ const Footer = () => {
             </h6>
             <ul class="list-unstyled mb-0">
               <li class="mb-2">
-                <a href="#" class="text-muted">
+                <a href="_blank" class="text-muted">
                   Up Comming
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#" class="text-muted">
+                <a href="_blank" class="text-muted">
                   Lated
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#" class="text-muted">
+                <a href="_blank" class="text-muted">
                   On Trending
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#" class="text-muted">
+                <a href="_blank" class="text-muted">
                   Top Rated
                 </a>
               </li>
@@ -78,22 +78,22 @@ const Footer = () => {
             </h6>
             <ul class="list-unstyled mb-0">
               <li class="mb-2">
-                <a href="#" class="text-muted">
+                <a href="_blank" class="text-muted">
                   Action
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#" class="text-muted">
+                <a href="_blank" class="text-muted">
                   Adventure
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#" class="text-muted">
+                <a href="_blank" class="text-muted">
                   Romantic
                 </a>
               </li>
               <li class="mb-2">
-                <a href="#" class="text-muted">
+                <a href="_blank" class="text-muted">
                   Fantasy
                 </a>
               </li>
