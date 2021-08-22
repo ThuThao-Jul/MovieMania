@@ -23,10 +23,7 @@ const SearchBox = () => {
         history.push(`/search/${e.target.name}`)
     }
 
-  const confirmSearch = () => {
-    setQuery(input);
-  };
-  console.log(category, query, handleCategory);
+
 
   return (
     <>
