@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
 import Coverflow from "react-coverflow"
-=======
-
-import Coverflow from "react-coverflow";
->>>>>>> f319a83cd6bdd0019893dcb44153b99b74a48530
 import MovieList from "./MovieList";
 import Banner from "./banner";
 import CarouselPart from "./CarouselPart";

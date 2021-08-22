@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
 import { FaStar } from 'react-icons/fa';
-=======
-import { FaStar } from "react-icons/fa";
->>>>>>> f319a83cd6bdd0019893dcb44153b99b74a48530
 import { useHistory } from "react-router-dom";
 
 const Banner = ({ data }) => {

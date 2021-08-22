@@ -86,34 +86,6 @@ const MovieList = () => {
           </Nav>
         </Col>
 
-<<<<<<< HEAD
-          <Col sm={9}>
-          <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem"}}>
-          <Tab.Content>
-              
-                 {genres.map((g) => {
-                   const findGenresId = [];
-                   movies.map((m) => {if (m.genre_ids.includes(g.id)) {findGenresId.push(m)} return 2})
-                     console.log('findGenresId', findGenresId)
-                    return (
-                      <Tab.Pane eventKey={g.name}>
-
-              {Array.from({ length: 1 }).map((_, idx) => (
-                <Col >
-                <Row xs={1} md={2} lg={3} className="g-4">
-                {findGenresId.map((movie) =>
-                   <div className="containerImage"  onClick={() => handleClickMovie(movie.id)}>
-                      <Image className="image" src = {`https://www.themoviedb.org/t/p/w1920_and_h1080_face/${movie.backdrop_path}`} fluid /> 
-                        <div className="middle">
-                    <div className="content">
-                      <h4 style={{color:"red"}}>{movie.title}</h4>
-                      <p>Rating {movie.vote_average}</p>
-                      <p>Released date {movie.release_date}</p>
-                      </div>
-                        </div>
-                    </div>  
-                   )}
-=======
         <Col sm={9}>
           <div
             style={{
@@ -166,7 +138,6 @@ const MovieList = () => {
                 );
               })}
             </Tab.Content>
->>>>>>> f319a83cd6bdd0019893dcb44153b99b74a48530
 
             <PaginationBar data={data} page={page} setPage={setPage} />
           </div>
