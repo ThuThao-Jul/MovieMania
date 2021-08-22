@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import reactDom from "react-dom";
 import Coverflow from "react-coverflow"
 import MovieList from "./MovieList";
 import Banner from "./banner"

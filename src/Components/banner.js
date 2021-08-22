@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FaStar } from 'react-icons/fa';
 import { useHistory } from "react-router-dom";
 

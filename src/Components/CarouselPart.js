@@ -22,7 +22,7 @@ const CarouselPart =() => {
       const data = await fetch(urlUpcoming);
       const resultUpcoming = await data.json();
       console.log(resultUpcoming)
-      resultUpcoming.results.map((r) => console.log(r.id))
+      // resultUpcoming.results.map((r) => console.log(r.id))
       setDataUpcoming(resultUpcoming.results)
   }
   getUpcoming() 
@@ -73,7 +73,7 @@ const CarouselPart =() => {
 > 
 
   {dataUpcoming.map((m) => 
-<div className="containerCarousel" onClick={() => handleClickMovie(m.id)}>
+<div className="containerCarousel"  key={m.id} onClick={() => handleClickMovie(m.id)}>
   <img className="image" src={`https://www.themoviedb.org/t/p/w220_and_h330_face${m.poster_path}`}  alt="poster"  />
   <div className="middle">
     <div className="content">

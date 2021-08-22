@@ -90,7 +90,7 @@ const MovieList = () => {
               
                  {genres.map((g) => {
                    const findGenresId = [];
-                   movies.map((m) => {if (m.genre_ids.includes(g.id)) {findGenresId.push(m)}})
+                   movies.map((m) => {if (m.genre_ids.includes(g.id)) {findGenresId.push(m)} return 2})
                      console.log('findGenresId', findGenresId)
                     return (
                       <Tab.Pane eventKey={g.name}>
