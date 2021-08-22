@@ -53,37 +53,40 @@ const MovieList = () => {
     getMovies();
   }, [page]);
 
-    const handleClick = (eventKey) => {
-      console.log('handleClick', eventKey)
-      setActiveItem(eventKey)
-    }
-    
-  
-    return (
- 
+  const handleClick = (eventKey) => {
+    console.log("handleClick", eventKey);
+    setActiveItem(eventKey);
+  };
 
-      <Tab.Container id="left-tabs-example" defaultActiveKey="Action">
-        <Row>
-          <Col sm={3}>
+  return (
+    <Tab.Container id="left-tabs-example" defaultActiveKey="Action">
+      <Row>
+        <Col sm={3}>
           <Nav variant="pills" className="flex-column">
-            {['Danger'].map(
-  (variant) => (
-    <DropdownButton
-      as={ButtonGroup}
-      key={variant}
-      // id={`dropdown-variants-${variant}`}
-      variant={variant.toLowerCase()}
-      title={activeItem}
-    >
-       {genres.map((g) => 
-         <Dropdown.Item eventKey={g.name} active={onclick} name={g.name} onSelect={(handleClick)}>{g.name}</Dropdown.Item>
-       )}
-    </DropdownButton>
-  ),
-)}
+            {["Danger"].map((variant) => (
+              <DropdownButton
+                as={ButtonGroup}
+                key={variant}
+                // id={`dropdown-variants-${variant}`}
+                variant={variant.toLowerCase()}
+                title={activeItem}
+              >
+                {genres.map((g) => (
+                  <Dropdown.Item
+                    eventKey={g.name}
+                    active={onclick}
+                    name={g.name}
+                    onSelect={handleClick}
+                  >
+                    {g.name}
+                  </Dropdown.Item>
+                ))}
+              </DropdownButton>
+            ))}
           </Nav>
         </Col>
 
+<<<<<<< HEAD
           <Col sm={9}>
           <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:"2rem"}}>
           <Tab.Content>
@@ -110,23 +113,66 @@ const MovieList = () => {
                         </div>
                     </div>  
                    )}
+=======
+        <Col sm={9}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "2rem",
+            }}
+          >
+            <Tab.Content>
+              {genres.map((g) => {
+                const findGenresId = [];
+                movies.map((m) => {
+                  if (m.genre_ids.includes(g.id)) {
+                    findGenresId.push(m);
+                  }
+                  return 2;
+                });
+                console.log("findGenresId", findGenresId);
+                return (
+                  <Tab.Pane eventKey={g.name}>
+                    {Array.from({ length: 1 }).map((_) => (
+                      <Col>
+                        <Row xs={1} md={2} lg={3} className="g-4">
+                          {findGenresId.map((movie) => (
+                            <div
+                              className="containerImage"
+                              onClick={() => handleClickMovie(movie.id)}
+                            >
+                              <Image
+                                className="image"
+                                src={`https://www.themoviedb.org/t/p/w1920_and_h1080_face/${movie.backdrop_path}`}
+                                fluid
+                              />
+                              <div className="middle">
+                                <div className="content">
+                                  <h4 style={{ color: "red" }}>
+                                    {movie.title}
+                                  </h4>
+                                  <p>Rating {movie.vote_average}</p>
+                                  <p>Released date {movie.release_date}</p>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </Row>
+                      </Col>
+                    ))}
+                  </Tab.Pane>
+                );
+              })}
+            </Tab.Content>
+>>>>>>> f319a83cd6bdd0019893dcb44153b99b74a48530
 
-                </Row>
-                </Col>)
-                )}
-                    </Tab.Pane>)
-                 })}
-          </Tab.Content>
-        
-          <PaginationBar data={data} page={page} setPage={setPage} />
-          
-        </div>
+            <PaginationBar data={data} page={page} setPage={setPage} />
+          </div>
         </Col>
-       
-        </Row>
-      </Tab.Container>
-
-      
-    )
-}
-export default MovieList
+      </Row>
+    </Tab.Container>
+  );
+};
+export default MovieList;
